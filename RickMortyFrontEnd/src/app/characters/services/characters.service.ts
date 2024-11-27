@@ -7,7 +7,7 @@ import { inject, Injectable } from '@angular/core';
 export class CharactersService {
 
 
-  private baseUrl: string = '';
+  private baseUrl: string = 'https://rickandmortyapi.com/api/character';
   
   public error: string[] = [];
 
