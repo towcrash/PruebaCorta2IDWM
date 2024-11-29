@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CharactersService } from '../../services/characters.service';
 import { HttpClientModule } from '@angular/common/http';
+import { character } from '../../interfaces/Character';
+import { ResponseAPIGetAll } from '../../interfaces/ResponseApiGetAll';
 
 @Component({
   selector: 'app-search-bar',
@@ -12,11 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 export class SearchBarComponent {
   private charactersService: CharactersService = inject(CharactersService);
 
+  characters: ResponseAPIGetAll[] = [];
+
   constructor() {}
 
-  getCharacters() {
-    this.charactersService.getAllCharacters('').then((characters) => {
+  getCharacters(name: string) {
+    this.charactersService.getAllCharacters(name).then((characters) => {
       console.log(characters);
+      this.characters.push();
     }).catch((error) => {
       console.log(error);
     });
